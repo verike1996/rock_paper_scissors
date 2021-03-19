@@ -45,8 +45,6 @@ function playGame() {
     }
 
     scoreUpdate();
-
-    console.log(result);
 }
 
 function scoreUpdate() {
@@ -56,9 +54,23 @@ function scoreUpdate() {
     } else if (playerScore >= 5) {
         document.getElementById('winMessage').innerHTML = `Congratulations! You win!`;
         document.getElementById('playerScore').innerHTML = `Player Score: 5`;
+        document.getElementById('resetButtonDiv').innerHTML = `<button id="resetButton">Reset</button>`;
+        return;
     } else if (computerScore >= 5) {
         document.getElementById('winMessage').innerHTML = `The Computer wins. Better luck next time!`;
         document.getElementById('computerScore').innerHTML = `Computer Score: 5`;
+        document.getElementById('resetButtonDiv').innerHTML = `<button id="resetButton">Reset</button>`;
+        return;
+    }
+    resetButtonButton = document.getElementById('resetButton');
+
+    testButton =  resetButtonButton.onclick = function() {
+        playerScore = 0;
+        computerScore = 0;
+        document.getElementById('playerScore').innerHTML = `Player Score: ${playerScore}`;
+        document.getElementById('computerScore').innerHTML = `Computer Score: ${computerScore}`;
+        document.getElementById('winMessage').innerHTML = ``;
+        document.getElementById('resetButtonDiv').innerHTML = `<span id="resetButton"></span>`;
     }
 }
 
@@ -66,6 +78,8 @@ let choiceButtonRock = document.getElementById('isRock');
 let choiceButtonPaper = document.getElementById('isPaper');
 let choiceButtonScissors = document.getElementById('isScissors');
 let executePlayGame = document.getElementsByTagName('button');
+let resetButton = document.getElementById('resetButton');
+let resetButtonButton;
 
 let playerScoreHTML = document.getElementById('playerScore');
 let computerScoreHTML = document.getElementById('computerScore');
@@ -92,6 +106,8 @@ choiceButtonScissors.onclick = function() {
     playerChoice = 'Scissors';
     playGame();
 }
+
+let testButton;
 
 for (i = 0; i < 10; i++) {
     computerPlay();
