@@ -43,17 +43,38 @@ function playGame() {
     } else if (playerChoice == 'Scissors' && computerChoice == 'Scissors') {
         result = 'It\'s a tie';
     }
-    
+
+    scoreUpdate();
+
     console.log(result);
+}
+
+function scoreUpdate() {
+    if (playerScore < 5 && computerScore < 5) {
+        document.getElementById('playerScore').innerHTML = `Player Score: ${playerScore}`;
+        document.getElementById('computerScore').innerHTML = `Computer Score: ${computerScore}`;
+    } else if (playerScore >= 5) {
+        document.getElementById('winMessage').innerHTML = `Congratulations! You win!`;
+        document.getElementById('playerScore').innerHTML = `Player Score: 5`;
+    } else if (computerScore >= 5) {
+        document.getElementById('winMessage').innerHTML = `The Computer wins. Better luck next time!`;
+        document.getElementById('computerScore').innerHTML = `Computer Score: 5`;
+    }
 }
 
 let choiceButtonRock = document.getElementById('isRock');
 let choiceButtonPaper = document.getElementById('isPaper');
 let choiceButtonScissors = document.getElementById('isScissors');
 let executePlayGame = document.getElementsByTagName('button');
+
+let playerScoreHTML = document.getElementById('playerScore');
+let computerScoreHTML = document.getElementById('computerScore');
+let winMessage = document.getElementById('winMessage');
+
 let playerChoice;
 let result;
 let computerChoice;
+
 let computerScore = 0;
 let playerScore = 0;
 
