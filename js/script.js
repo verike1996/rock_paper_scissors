@@ -9,6 +9,7 @@ function computerPlay() {
             compterDecision = 'Scissors';
         }
     console.log(compterDecision);
+    computerChoice = compterDecision;
 }
 
 function random() {
@@ -16,6 +17,7 @@ function random() {
 }
 
 function playGame() {
+    computerPlay();
     if (playerChoice == 'Rock' && computerChoice == 'Rock') {
         result = 'It\'s a tie!';
     } else if (playerChoice == 'Rock' && computerChoice == 'Paper') {
@@ -48,22 +50,26 @@ function playGame() {
 let choiceButtonRock = document.getElementById('isRock');
 let choiceButtonPaper = document.getElementById('isPaper');
 let choiceButtonScissors = document.getElementById('isScissors');
-let playerChoice = 'Scissors';
+let executePlayGame = document.getElementsByTagName('button');
+let playerChoice;
 let result;
-let computerChoice = 'Rock';
+let computerChoice;
 let computerScore = 0;
 let playerScore = 0;
 
 choiceButtonRock.onclick = function() {
     playerChoice = 'Rock';
+    playGame();
 }
 
 choiceButtonPaper.onclick = function() {
     playerChoice = 'Paper';
+    playGame();
 }
 
 choiceButtonScissors.onclick = function() {
     playerChoice = 'Scissors';
+    playGame();
 }
 
 for (i = 0; i < 10; i++) {
