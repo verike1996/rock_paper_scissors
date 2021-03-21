@@ -1,0 +1,25 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.imgWrapper {
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px 200px 50px 200px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.imgWrapper:hover {
+
+    border: 1px solid black;
+}
