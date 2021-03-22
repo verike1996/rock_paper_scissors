@@ -1,16 +1,32 @@
+html {
+    font-family: 'Josefin Sans';
+}
+
 body {
     background-color: #353238;
     color: #FFBA08;
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+h1 {
+    font-size: 45px;
 }
 
 .imgWrapper {
     padding: 15px;
     border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.resultsImgContainer {
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 25%;
 }
 
 .btnContainer {

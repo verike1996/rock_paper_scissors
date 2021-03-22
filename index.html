@@ -3,9 +3,22 @@
     <meta charset="UTF-8">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/mainStyles.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mainStyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <body>
+
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div>
+        <span id="playerScore">Player Score: 0</span>
+    </div>
+    <div>
+        <span id="computerScore">Computer Score: 0</span>
+    </div>
 
     <div class="btnContainer">
         <div class="imgWrapper"><img class='button' id="isRock" src="img/rock.svg" alt="a picture of rock"></div>
@@ -21,12 +34,6 @@
         </div>
     </div>
     <div>
-        <div>
-            <span id="playerScore">Player Score: 0</span>
-        </div>
-        <div>
-            <span id="computerScore">Computer Score: 0</span>
-        </div>
         <div>
             <span id="scoreUpdateMessage"></span>
         </div>
