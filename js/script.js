@@ -6,6 +6,7 @@ function computerPlay() {
     let play = random();
         if (play % 3 === 0) {
             compterDecision = 'Rock';
+            document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.png>"';
         } else if (play % 3 === 1) {
             compterDecision = 'Paper';
         } else {
@@ -45,14 +46,17 @@ function playGame() {
             result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
         }
     }
-    
+
     scoreUpdate();
+
     if (computerScore === 5 || playerScore === 5) {
         result = 'The game is over!'
         document.getElementById('scoreUpdateMessage').innerHTML = result;
     } else {
         document.getElementById('scoreUpdateMessage').innerHTML = result;
     }
+
+    insertPicture();
 }
 
 function scoreUpdate() {
@@ -62,12 +66,29 @@ function scoreUpdate() {
     } else if (playerScore >= 5) {
         document.getElementById('winMessage').innerHTML = `Congratulations! You win!`;
         document.getElementById('playerScore').innerHTML = `Player Score: 5`;
-        document.getElementById('resetButtonDiv').innerHTML = `<button id="resetButton">Reset</button>`;
         return;
     } else if (computerScore >= 5) {
         document.getElementById('winMessage').innerHTML = `The Computer wins. Better luck next time!`;
         document.getElementById('computerScore').innerHTML = `Computer Score: 5`;
         return;
+    }
+}
+
+function insertPicture() {
+    if (computerChoice === 'Rock') {
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.png">';
+    } else if (computerChoice === 'Paper') {
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/paper.png">';
+    } else if (computerChoice === 'Scissors') {
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/scissors.png">';
+    }
+
+    if (playerChoice === 'Rock') {
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/rock.png">';
+    } else if (playerChoice === 'Paper') {
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/paper.png">';
+    } else if (playerChoice === 'Scissors') {
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/scissors.png">';
     }
 }
 
