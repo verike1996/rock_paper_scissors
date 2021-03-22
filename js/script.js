@@ -6,7 +6,7 @@ function computerPlay() {
     let play = random();
         if (play % 3 === 0) {
             compterDecision = 'Rock';
-            document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.png>"';
+            document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.svg>"';
         } else if (play % 3 === 1) {
             compterDecision = 'Paper';
         } else {
@@ -76,19 +76,19 @@ function scoreUpdate() {
 
 function insertPicture() {
     if (computerChoice === 'Rock') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.png">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.svg">';
     } else if (computerChoice === 'Paper') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/paper.png">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/paper.svg">';
     } else if (computerChoice === 'Scissors') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/scissors.png">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/scissors.svg">';
     }
 
     if (playerChoice === 'Rock') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/rock.png">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/rock.svg">';
     } else if (playerChoice === 'Paper') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/paper.png">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/paper.svg">';
     } else if (playerChoice === 'Scissors') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/scissors.png">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/scissors.svg">';
     }
 }
 
