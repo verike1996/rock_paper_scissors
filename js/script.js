@@ -11,38 +11,41 @@ function computerPlay() {
         } else {
             compterDecision = 'Scissors';
         }
-    console.log(compterDecision);
     computerChoice = compterDecision;
 }
 
 function playGame() {
-    computerPlay();
-    if (playerChoice == 'Rock' && computerChoice == 'Rock') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
-    } else if (playerChoice == 'Rock' && computerChoice == 'Paper') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
-        computerScore += 1;
-    } else if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
-        playerScore += 1;
-    } else if (playerChoice == 'Paper' && computerChoice == 'Rock') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
-        playerScore += 1;
-    } else if (playerChoice == 'Paper' && computerChoice == 'Paper') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
-    } else if (playerChoice == 'Paper' && computerChoice == 'Scissors') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
-        computerScore += 1;
-    } else if (playerChoice == 'Scissors' && computerChoice == 'Rock') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
-        computerScore += 1;
-    } else if (playerChoice == 'Scissors' && computerChoice == 'Paper') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
-        playerScore += 1;
-    } else if (playerChoice == 'Scissors' && computerChoice == 'Scissors') {
-        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
+    if (playerScore >= 5 || computerScore >= 5) {
+        result = 'The game is over!'
+    } else { 
+        computerPlay();
+        if (playerChoice == 'Rock' && computerChoice == 'Rock') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
+        } else if (playerChoice == 'Rock' && computerChoice == 'Paper') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
+            computerScore += 1;
+        } else if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
+            playerScore += 1;
+        } else if (playerChoice == 'Paper' && computerChoice == 'Rock') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
+            playerScore += 1;
+        } else if (playerChoice == 'Paper' && computerChoice == 'Paper') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
+        } else if (playerChoice == 'Paper' && computerChoice == 'Scissors') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
+            computerScore += 1;
+        } else if (playerChoice == 'Scissors' && computerChoice == 'Rock') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
+            computerScore += 1;
+        } else if (playerChoice == 'Scissors' && computerChoice == 'Paper') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
+            playerScore += 1;
+        } else if (playerChoice == 'Scissors' && computerChoice == 'Scissors') {
+            result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
+        }
     }
-
+    
     scoreUpdate();
     if (computerScore === 5 || playerScore === 5) {
         result = 'The game is over!'
@@ -64,7 +67,6 @@ function scoreUpdate() {
     } else if (computerScore >= 5) {
         document.getElementById('winMessage').innerHTML = `The Computer wins. Better luck next time!`;
         document.getElementById('computerScore').innerHTML = `Computer Score: 5`;
-        document.getElementById('resetButtonDiv').innerHTML = `<button id="resetButton">Reset</button>`;
         return;
     }
 }
@@ -73,8 +75,6 @@ let choiceButtonRock = document.getElementById('isRock');
 let choiceButtonPaper = document.getElementById('isPaper');
 let choiceButtonScissors = document.getElementById('isScissors');
 let executePlayGame = document.getElementsByTagName('button');
-let resetButton = document.getElementById('resetButton');
-let resetButtonButton;
 let scoreUpdateMessage;
 
 let playerScoreHTML = document.getElementById('playerScore');
