@@ -1,9 +1,12 @@
+function random() {
+    return Math.floor(Math.random() * 1000);
+ }
 
 function computerPlay() {
     let play = random();
-        if (play === 0) {
+        if (play % 3 === 0) {
             compterDecision = 'Rock';
-        } else if (play === 1) {
+        } else if (play % 3 === 1) {
             compterDecision = 'Paper';
         } else {
             compterDecision = 'Scissors';
@@ -12,39 +15,41 @@ function computerPlay() {
     computerChoice = compterDecision;
 }
 
-function random() {
-   return Math.floor(Math.random() * 3);
-}
-
 function playGame() {
     computerPlay();
     if (playerChoice == 'Rock' && computerChoice == 'Rock') {
-        result = 'It\'s a tie!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
     } else if (playerChoice == 'Rock' && computerChoice == 'Paper') {
-        result = 'You lost!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
         computerScore += 1;
     } else if (playerChoice == 'Rock' && computerChoice == 'Scissors') {
-        result = 'You win!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
         playerScore += 1;
     } else if (playerChoice == 'Paper' && computerChoice == 'Rock') {
-        result = 'You win!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
         playerScore += 1;
     } else if (playerChoice == 'Paper' && computerChoice == 'Paper') {
-        result = 'It\'s a tie!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
     } else if (playerChoice == 'Paper' && computerChoice == 'Scissors') {
-        result = 'You lost!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
         computerScore += 1;
     } else if (playerChoice == 'Scissors' && computerChoice == 'Rock') {
-        result = 'You lost!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You lost!`;
         computerScore += 1;
     } else if (playerChoice == 'Scissors' && computerChoice == 'Paper') {
-        result = 'You win!';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! You win!`;
         playerScore += 1;
     } else if (playerChoice == 'Scissors' && computerChoice == 'Scissors') {
-        result = 'It\'s a tie';
+        result = `You played ${playerChoice} and the computer played ${computerChoice}! It's a tie!`;
     }
 
     scoreUpdate();
+    if (computerScore === 5 || playerScore === 5) {
+        result = 'The game is over!'
+        document.getElementById('scoreUpdateMessage').innerHTML = result;
+    } else {
+        document.getElementById('scoreUpdateMessage').innerHTML = result;
+    }
 }
 
 function scoreUpdate() {
@@ -62,16 +67,6 @@ function scoreUpdate() {
         document.getElementById('resetButtonDiv').innerHTML = `<button id="resetButton">Reset</button>`;
         return;
     }
-    resetButtonButton = document.getElementById('resetButton');
-
-    testButton =  resetButtonButton.onclick = function() {
-        playerScore = 0;
-        computerScore = 0;
-        document.getElementById('playerScore').innerHTML = `Player Score: ${playerScore}`;
-        document.getElementById('computerScore').innerHTML = `Computer Score: ${computerScore}`;
-        document.getElementById('winMessage').innerHTML = ``;
-        document.getElementById('resetButtonDiv').innerHTML = `<span id="resetButton"></span>`;
-    }
 }
 
 let choiceButtonRock = document.getElementById('isRock');
@@ -80,6 +75,7 @@ let choiceButtonScissors = document.getElementById('isScissors');
 let executePlayGame = document.getElementsByTagName('button');
 let resetButton = document.getElementById('resetButton');
 let resetButtonButton;
+let scoreUpdateMessage;
 
 let playerScoreHTML = document.getElementById('playerScore');
 let computerScoreHTML = document.getElementById('computerScore');
@@ -107,7 +103,6 @@ choiceButtonScissors.onclick = function() {
     playGame();
 }
 
-let testButton;
 
 for (i = 0; i < 10; i++) {
     computerPlay();
