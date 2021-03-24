@@ -18,6 +18,7 @@ function computerPlay() {
 function playGame() {
     if (playerScore >= 5 || computerScore >= 5) {
         result = 'The game is over!'
+        resetButton.insertAdjacentElement('beforebegin', newGame);
     } else { 
         computerPlay();
         if (playerChoice == 'Rock' && computerChoice == 'Rock') {
@@ -99,15 +100,24 @@ function insertPicture() {
     insertPlayerPicture();
 }
 
+function refreshPage() {
+    window.location.reload(true);
+}
+
 let choiceButtonRock = document.getElementById('isRock');
 let choiceButtonPaper = document.getElementById('isPaper');
 let choiceButtonScissors = document.getElementById('isScissors');
 let executePlayGame = document.getElementsByTagName('button');
 let scoreUpdateMessage;
 
+let newGame = document.createElement('button');
+newGame.textContent = `Play again`;
+newGame.classList.add('button', 'refresh');
+
 let playerScoreHTML = document.getElementById('playerScore');
 let computerScoreHTML = document.getElementById('computerScore');
 let winMessage = document.getElementById('winMessage');
+let resetButton = document.getElementById('resetButton');
 
 let playerChoice;
 let result;
@@ -131,7 +141,6 @@ choiceButtonScissors.onclick = function() {
     playGame();
 }
 
-
-for (i = 0; i < 10; i++) {
-    computerPlay();
+newGame.onclick = function() {
+    location.reload();
 }
