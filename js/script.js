@@ -54,9 +54,8 @@ function playGame() {
         document.getElementById('scoreUpdateMessage').innerHTML = result;
     } else {
         document.getElementById('scoreUpdateMessage').innerHTML = result;
+        insertPicture();
     }
-
-    insertPicture();
 }
 
 function scoreUpdate() {
