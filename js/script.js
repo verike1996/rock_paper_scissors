@@ -52,6 +52,7 @@ function playGame() {
     if (computerScore === 5 || playerScore === 5) {
         result = 'The game is over!'
         document.getElementById('scoreUpdateMessage').innerHTML = result;
+        insertComputerPicture();
     } else {
         document.getElementById('scoreUpdateMessage').innerHTML = result;
         insertPicture();
@@ -73,22 +74,29 @@ function scoreUpdate() {
     }
 }
 
-function insertPicture() {
+function insertComputerPicture() {
     if (computerChoice === 'Rock') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/rock.svg">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/rock.svg">';
     } else if (computerChoice === 'Paper') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/paper.svg">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/paper.svg">';
     } else if (computerChoice === 'Scissors') {
-        document.getElementById('computerChoiceImg').innerHTML = '<img src="img/scissors.svg">';
+        document.getElementById('computerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/scissors.svg">';
     }
+}
 
+function insertPlayerPicture() {
     if (playerChoice === 'Rock') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/rock.svg">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/rock.svg">';
     } else if (playerChoice === 'Paper') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/paper.svg">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/paper.svg">';
     } else if (playerChoice === 'Scissors') {
-        document.getElementById('playerChoiceImg').innerHTML = '<img src="img/scissors.svg">';
+        document.getElementById('playerChoiceImg').innerHTML = '<img class="insertedPicture" src="img/scissors.svg">';
     }
+}
+
+function insertPicture() {
+    insertComputerPicture();
+    insertPlayerPicture();
 }
 
 let choiceButtonRock = document.getElementById('isRock');

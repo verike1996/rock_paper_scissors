@@ -4,15 +4,11 @@ html {
 }
 
 body {
-    background-color: #353238;
-    color: #FFBA08;
+    background-color: #2D3E50;
+    color: #FFF;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-header {
-    background
 }
 
 img {
@@ -29,12 +25,14 @@ h1 {
 footer {
     flex-shrink: 0;
     height: 20px;
-    background-color: red;
+    background-color: #d9534f;
 }
 
 .imgWrapper {
-    border-radius: 10%;
+    border-radius: 50%;
     border: 3px solid rgba(0, 0, 0, 0);
+    transition: .2s;
+    background-color: #d9534f;
 }
 
 .scoreContainer {
@@ -55,13 +53,22 @@ footer {
 
 .resultsImgContainer {
     height: 250px;
-    display: flex;
+    display: grid;
+    grid: "youPlayed computerPlayed"
+          "playerChoiceImg computerChoiceImg";
+    grid-template-columns: 200px 200px;
     justify-content: space-between;
-    margin: 0px 25%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 .content {
     flex: 1 0 auto;
+}
+
+.insertedPicture {
+    background-color: #d9534f;
+    border-radius: 50%;
 }
 
 .btnContainer {
@@ -69,7 +76,6 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     margin: 50px 200px 50px 200px;
-    background-color: ;
 }
 
 .button:hover {
@@ -78,5 +84,23 @@ footer {
 
 .imgWrapper:hover {
     box-shadow: 0 0 10px 10px #FFF;
-    transition: .55s ease-in-out;
+    transition: .2s;
+}
+
+#youPlayed {
+    text-align: center;
+    grid-area: youPlayed;
+}
+
+#computerPlayed {
+    text-align: center;
+    grid-area: computerPlayed;
+}
+
+#playerChoiceImg {
+    grid-area: playerChoiceImg;
+}
+
+#computerChoiceImg {
+    grid-area: computerChoiceImg;
 }
